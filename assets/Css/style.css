@@ -1,3 +1,6 @@
+body{
+background-image: url(../Images/background.jpg);
+}
 .container {
 text-align: center;
 box-sizing: border-box;
