@@ -27,6 +27,10 @@ $(document).ready(function () {
         var cityText = $(".cityInput").val();
         $(".cityInput").val("");
 
+        var listBtn = $("<button>"+ cityText +"</button>");
+        //listBtn.text() = cityText;
+        $(".list").prepend(listBtn);
+
         findRestaurantDetails(lat, lon, cityText);
        //findNightlife(lat, lon);
       });
