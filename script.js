@@ -1,19 +1,20 @@
 $(document).ready(function () {
     //apikey = d2817c523bb9d90495ae19c12392cc03";
-    var userLocation = "Miami";
+    var userLocation = document.querySelector(".cityInput")
     var lat;
     var lon;
-    var randNum = Math.floor(Math.random() * 10);
+    
     var name;
     var address;
     var cuisines;
     var priceRange;
+    
 
     //ajax call for latitude and longitude of a city
-    $(".print").click(function(event) {
+    $(".submitBtn").click(function(event) {
       event.preventDefault();
-     // var queryUrl = "https://developers.zomato.com/api/v2.1/locations?query=" + $(userLocation).val();
-      var queryUrl = "https://developers.zomato.com/api/v2.1/locations?query=miami";
+      var queryUrl = "https://developers.zomato.com/api/v2.1/locations?query=" + $(".cityInput").val();
+      //var queryUrl = "https://developers.zomato.com/api/v2.1/locations?query=miami";
       $.ajax({
         url: queryUrl,
         method: "GET",
@@ -45,7 +46,7 @@ $(document).ready(function () {
       }).then(function (response) {
         console.log("findRestaurantDetails:");
         console.log(response);
-
+        var randNum = Math.floor(Math.random() * 10);
         name = response.nearby_restaurants[randNum].restaurant.name;
         address = response.nearby_restaurants[randNum].restaurant.location.address;
         cuisines = response.nearby_restaurants[randNum].restaurant.cuisines;
@@ -55,7 +56,7 @@ $(document).ready(function () {
     };
 
     //ajax call for nightlife 
-    function findNightlife() {
+    function findNightlife(lat, lon) {
       var queryUrl3 = "https://developers.zomato.com/api/v2.1/search?lat=" + lat + "&lon=" + lon + "category=Nightlife";
       $.ajax({
         url: queryUrl3,
