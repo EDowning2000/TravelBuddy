@@ -12,7 +12,8 @@ $(document).ready(function () {
     //ajax call for latitude and longitude of a city
     $(".print").click(function(event) {
       event.preventDefault();
-      var queryUrl = "https://developers.zomato.com/api/v2.1/locations?query=" + $(userLocation).val();
+     // var queryUrl = "https://developers.zomato.com/api/v2.1/locations?query=" + $(userLocation).val();
+      var queryUrl = "https://developers.zomato.com/api/v2.1/locations?query=miami";
       $.ajax({
         url: queryUrl,
         method: "GET",
@@ -21,6 +22,7 @@ $(document).ready(function () {
           "Accept": "application/json"
         }
       }).then(function (response) {
+        console.log("findLatLon");
         console.log(response);
         let lat = response.location_suggestions[0].latitude;
         let lon = response.location_suggestions[0].longitude;
@@ -41,6 +43,7 @@ $(document).ready(function () {
           "Accept": "application/json"
         }
       }).then(function (response) {
+        console.log("findRestaurantDetails:");
         console.log(response);
 
         name = response.nearby_restaurants[randNum].restaurant.name;
@@ -62,6 +65,7 @@ $(document).ready(function () {
           "Accept": "application/json"
         }
       }).then(function (response) {
+        console.log("nightlife:");
         console.log(response);
       });
     };
