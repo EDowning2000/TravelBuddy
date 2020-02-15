@@ -28,7 +28,7 @@ $(document).ready(function () {
         $(".cityInput").val("");
 
         var listBtn = $("<button>"+ cityText +"</button>");
-        //listBtn.text() = cityText;
+        listBtn.addClass("listBtn");
         $(".list").prepend(listBtn);
 
         findRestaurantDetails(lat, lon, cityText);
@@ -71,7 +71,6 @@ $(document).ready(function () {
           "Accept": "application/json"
         }
       }).then(function (response) {
-        
       });
     };
     
@@ -85,7 +84,14 @@ $(document).ready(function () {
       localStorage.setItem("cities", JSON.stringify(cities));
     };
 
-    function renderPrevSearch(){  
+    $(document).on("click", ".listBtn", renderPastCitySearch);
+
+    function renderPastCitySearch(){ 
+      var cities = JSON.parse(localStorage.getItem("cities")) || {};
+      console.log(cities);
+      console.log($(this).text());
+      console.log(cities[$(this).text()]);
+      
     }
 
 
