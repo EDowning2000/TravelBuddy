@@ -1,7 +1,7 @@
 .container {
 text-align: center;
 box-sizing: border-box;
-width: 35%;
+width: 40%;
 }
 .searchIcon{
   margin-top: 50%;
@@ -45,4 +45,36 @@ width: 35%;
 }
 .clicked{
   background-color: red;
+}
+@media only screen and (max-width:1025px) {
+  .container {width: 80%;}
+  
+}
+@media only screen and (max-width:1024px) {
+  .container {width: 80%;}
+  
+}
+@media only screen and (max-width:925px) {
+  .container {width: 80%;}
+  
+}
+@media only screen and (max-width:768px) {
+  .container {width: 90%;}
+  
+}
+@media only screen and (max-width:414px) {
+  .container {width: 90%;}
+  
+}
+@media only screen and (max-width:411px) {
+  .container {width: 90%;}
+  
+}
+@media only screen and (max-width:360px) {
+  .container {width: 90%;}
+  
+}
+@media only screen and (max-width:320px) {
+  .container {width: 95%;}
+  
 }
