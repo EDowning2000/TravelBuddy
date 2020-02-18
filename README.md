@@ -1,2 +1,0 @@
-# TravelBuddy
-UCF first project 
